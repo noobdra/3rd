@@ -1,0 +1,1676 @@
+css
+/* =========================
+   THREE MONTHS — MAIN STYLE
+   ========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #050505;
+    color: white;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* =========================
+   STAR BACKGROUND
+   ========================= */
+
+.stars,
+.stars-2 {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, white, transparent),
+        radial-gradient(1px 1px at 30% 70%, white, transparent),
+        radial-gradient(1px 1px at 55% 15%, white, transparent),
+        radial-gradient(1px 1px at 75% 40%, white, transparent),
+        radial-gradient(1px 1px at 90% 80%, white, transparent),
+        radial-gradient(1px 1px at 45% 90%, white, transparent),
+        radial-gradient(1px 1px at 85% 10%, white, transparent),
+        radial-gradient(1px 1px at 15% 85%, white, transparent);
+
+    opacity: 0.5;
+    animation: drift 18s linear infinite;
+}
+
+.stars-2 {
+    transform: scale(1.5);
+    opacity: 0.2;
+    animation-duration: 28s;
+}
+
+@keyframes drift {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-30px);
+    }
+}
+
+
+/* =========================
+   OPENING SCREEN
+   ========================= */
+
+.opening {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   MOON
+   ========================= */
+
+.moon {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    margin-bottom: 35px;
+
+    box-shadow:
+        0 0 30px rgba(255, 255, 255, 0.12),
+        0 0 80px rgba(255, 220, 100, 0.08);
+
+    animation: moonFloat 5s ease-in-out infinite;
+}
+
+.moon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+@keyframes moonFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* =========================
+   TEXT
+   ========================= */
+
+.small-text {
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    opacity: 0.55;
+
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: clamp(65px, 12vw, 150px);
+
+    line-height: 0.8;
+
+    font-weight: 400;
+
+    letter-spacing: -5px;
+
+    margin-bottom: 30px;
+}
+
+h1 span {
+    font-style: italic;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #ffe98a,
+        #fff
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    from {
+        background-position: 0%;
+    }
+
+    to {
+        background-position: 200%;
+    }
+}
+
+.subtitle {
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    opacity: 0.6;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   ENTER BUTTON
+   ========================= */
+
+.enter-btn {
+    background: transparent;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    color: white;
+
+    padding: 15px 25px;
+
+    border-radius: 50px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.enter-btn span {
+    margin-left: 10px;
+
+    transition: transform 0.3s ease;
+}
+
+.enter-btn:hover {
+    background: rgba(255, 220, 100, 0.08);
+
+    border-color: rgba(255, 220, 100, 0.5);
+
+    transform: translateY(-3px);
+}
+
+.enter-btn:hover span {
+    display: inline-block;
+
+    transform: translateX(5px);
+}
+
+
+/* =========================
+   SUNFLOWER
+   ========================= */
+
+.sunflower {
+    position: fixed;
+
+    width: 110px;
+
+    right: 40px;
+    bottom: 30px;
+
+    opacity: 0.65;
+
+    transform: rotate(8deg);
+
+    animation: sunflowerFloat 6s ease-in-out infinite;
+
+    z-index: 3;
+}
+
+@keyframes sunflowerFloat {
+    0%, 100% {
+        transform: rotate(8deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(4deg) translateY(-8px);
+    }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .moon {
+        width: 110px;
+        height: 110px;
+
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        font-size: 70px;
+        letter-spacing: -3px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .sunflower {
+        width: 75px;
+
+        right: 15px;
+        bottom: 15px;
+    }
+} 
+
+css
+/* =========================
+   PAGE TRANSITIONS
+   ========================= */
+
+body {
+    opacity: 0;
+    transition: opacity 0.9s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+/* =========================================
+   CHAPTER ONE
+========================================= */
+
+.chapter-one {
+    background: #070707;
+    color: #f5f2e9;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.chapter-one .stars {
+    position: fixed;
+    z-index: 0;
+}
+
+.chapter-one section,
+.chapter-one nav {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* NAV */
+
+.top-nav {
+    position: absolute !important;
+    top: 30px;
+    left: 5%;
+    right: 5%;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    opacity: .45;
+}
+
+
+/* HERO */
+
+.chapter-hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 12%;
+}
+
+.eyebrow,
+.date,
+.scrapbook-heading p,
+.chapter-end > p:first-of-type {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    opacity: .5;
+}
+
+.chapter-hero h1 {
+    font-size: clamp(70px, 12vw, 170px);
+    line-height: .82;
+    letter-spacing: -6px;
+
+    margin: 25px 0 35px;
+}
+
+.chapter-hero h1 i {
+    color: #e9d47a;
+    font-weight: 400;
+}
+
+.hero-text {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    opacity: .55;
+}
+
+.scroll {
+    margin-top: 70px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    opacity: .4;
+}
+
+.scroll div {
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,.4);
+}
+
+
+/* MEMORY SECTIONS */
+
+.memory-section {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9vw;
+
+    padding: 100px 8%;
+}
+
+.memory-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.memory-photo {
+    position: relative;
+
+    width: min(420px, 42vw);
+    height: 500px;
+
+    overflow: hidden;
+
+    box-shadow: 0 30px 80px rgba(0,0,0,.6);
+}
+
+.memory-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #080808;
+}
+
+.photo-number {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    background: rgba(0,0,0,.5);
+    padding: 8px 10px;
+}
+
+.memory-copy {
+    width: min(400px, 80vw);
+}
+
+.memory-copy h2 {
+    font-size: clamp(45px, 6vw, 80px);
+    line-height: .9;
+    letter-spacing: -3px;
+
+    margin: 25px 0 35px;
+}
+
+.memory-copy h2 i {
+    color: #e9d47a;
+    font-weight: 400;
+}
+
+.memory-copy > p:last-child {
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+    line-height: 2;
+
+    opacity: .55;
+
+    max-width: 340px;
+}
+
+
+/* FULL IMAGE */
+
+.full-memory {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 100px 8%;
+}
+
+.full-image {
+    width: min(75vw, 1000px);
+    height: 75vh;
+    overflow: hidden;
+}
+
+.full-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+}
+
+.floating-caption {
+    position: absolute;
+
+    left: 12%;
+    bottom: 12%;
+
+    background: rgba(7,7,7,.88);
+
+    padding: 35px 40px;
+
+    max-width: 500px;
+}
+
+.floating-caption span {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    opacity: .45;
+}
+
+.floating-caption h2 {
+    font-size: clamp(35px, 4vw, 60px);
+    line-height: .95;
+
+    margin-top: 20px;
+}
+
+.floating-caption i {
+    color: #e9d47a;
+    font-weight: 400;
+}
+
+
+/* SCRAPBOOK */
+
+.scrapbook {
+    min-height: 100vh;
+    padding: 150px 8%;
+
+    background: #0b0b0b;
+}
+
+.scrapbook-heading h2 {
+    font-size: clamp(50px, 7vw, 100px);
+    line-height: .85;
+    letter-spacing: -4px;
+
+    margin-top: 25px;
+}
+
+.polaroids {
+    position: relative;
+
+    height: 650px;
+
+    max-width: 1000px;
+
+    margin: 80px auto 0;
+}
+
+.polaroid {
+    position: absolute;
+
+    background: #eee9dc;
+
+    padding: 12px 12px 35px;
+
+    width: 220px;
+
+    box-shadow: 0 25px 60px rgba(0,0,0,.5);
+
+    transition:
+        transform .5s ease,
+        z-index .2s;
+}
+
+.polaroid img {
+    display: block;
+
+    width: 100%;
+    height: 260px;
+
+    object-fit: cover;
+}
+
+.polaroid small {
+    display: block;
+
+    color: #222;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+
+    margin-top: 12px;
+}
+
+.p1 {
+    left: 5%;
+    top: 30px;
+    transform: rotate(-8deg);
+}
+
+.p2 {
+    left: 30%;
+    top: 100px;
+    transform: rotate(5deg);
+}
+
+.p3 {
+    left: 55%;
+    top: 20px;
+    transform: rotate(-4deg);
+}
+
+.p4 {
+    left: 75%;
+    top: 150px;
+    transform: rotate(8deg);
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.08);
+    z-index: 10;
+}
+
+
+/* END */
+
+.chapter-end {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.end-moon {
+    width: 140px;
+    height: 140px;
+
+    object-fit: cover;
+    border-radius: 50%;
+
+    margin-bottom: 50px;
+
+    box-shadow: 0 0 70px rgba(255,220,100,.12);
+}
+
+.chapter-end h2 {
+    font-size: clamp(60px, 9vw, 130px);
+    line-height: .8;
+    letter-spacing: -5px;
+
+    margin: 25px 0;
+}
+
+.end-small {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    opacity: .45;
+}
+
+.next-chapter {
+    margin-top: 60px;
+
+    color: white;
+    text-decoration: none;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    padding: 16px 25px;
+
+    border-radius: 50px;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    transition: .3s;
+}
+
+.next-chapter span {
+    margin-left: 15px;
+}
+
+.next-chapter:hover {
+    background: rgba(233,212,122,.08);
+    border-color: #e9d47a;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .top-nav {
+        top: 20px;
+    }
+
+    .chapter-hero {
+        padding: 0 10%;
+    }
+
+    .chapter-hero h1 {
+        font-size: 75px;
+    }
+
+    .memory-section,
+    .memory-section.reverse {
+        flex-direction: column;
+
+        padding: 100px 10%;
+    }
+
+    .memory-photo {
+        width: 85vw;
+        height: 500px;
+    }
+
+    .memory-copy {
+        width: 85vw;
+    }
+
+    .full-image {
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .floating-caption {
+        left: 8%;
+        right: 8%;
+        bottom: 8%;
+
+        padding: 25px;
+    }
+
+    .polaroids {
+        height: 900px;
+    }
+
+    .polaroid {
+        width: 180px;
+    }
+
+    .polaroid img {
+        height: 220px;
+    }
+
+    .p1 {
+        left: 5%;
+    }
+
+    .p2 {
+        left: 45%;
+        top: 170px;
+    }
+
+    .p3 {
+        left: 10%;
+        top: 400px;
+    }
+
+    .p4 {
+        left: 48%;
+        top: 550px;
+    }
+}
+
+/* =========================================
+   CHAPTER 2 — SOMEWHERE ALONG THE WAY
+========================================= */
+
+.chapter-two {
+    background: #070707;
+    color: #f5f2e9;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* ---------- HERO ---------- */
+
+.chapter-two-hero {
+    min-height: 100vh;
+    padding: 0 8%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+.chapter-two-hero h1 {
+    font-size: clamp(70px, 11vw, 165px);
+    line-height: .82;
+    letter-spacing: -7px;
+    font-weight: 400;
+
+    margin: 25px 0 35px;
+}
+
+.chapter-two-hero h1 i {
+    color: #e8d477;
+    font-weight: 400;
+}
+
+.chapter-two-hero > p:last-of-type {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    opacity: .5;
+}
+
+.chapter-two-hero .scroll {
+    margin-top: 70px;
+}
+
+
+/* ---------- CHAOS ---------- */
+
+.chaos-section {
+    min-height: 120vh;
+    padding: 150px 8%;
+
+    position: relative;
+    z-index: 2;
+}
+
+.section-title {
+    margin-bottom: 100px;
+}
+
+.section-title h2 {
+    font-size: clamp(55px, 8vw, 115px);
+    line-height: .85;
+    letter-spacing: -5px;
+
+    margin-top: 25px;
+}
+
+.section-title h2 i {
+    color: #e8d477;
+    font-weight: 400;
+}
+
+
+/* MEMORY ROWS */
+
+.chat-memory {
+    max-width: 1100px;
+    margin: 0 auto 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 80px;
+}
+
+.chat-memory.chat-two {
+    justify-content: flex-start;
+    margin-left: 15%;
+}
+
+.chat-photo {
+    width: 550px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.chat-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+}
+
+.chat-photo:hover img {
+    transform: scale(1.05);
+}
+
+.chat-note {
+    max-width: 300px;
+}
+
+.chat-note span {
+    display: block;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+
+    color: #e8d477;
+
+    margin-bottom: 20px;
+}
+
+.chat-note p {
+    font-size: 22px;
+    line-height: 1.5;
+
+    opacity: .65;
+}
+
+
+/* ---------- MINECRAFT ---------- */
+
+.minecraft-section {
+    min-height: 120vh;
+
+    padding: 150px 8%;
+
+    background: #0c0c0c;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 80px;
+}
+
+.minecraft-title {
+    width: 35%;
+}
+
+.minecraft-title > p:first-child {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    opacity: .45;
+}
+
+.minecraft-title h2 {
+    font-size: clamp(55px, 7vw, 105px);
+    line-height: .82;
+    letter-spacing: -5px;
+
+    margin: 25px 0 40px;
+}
+
+.minecraft-title h2 i {
+    color: #e8d477;
+    font-weight: 400;
+}
+
+.minecraft-text {
+    font-family: Arial, sans-serif;
+
+    max-width: 300px;
+
+    font-size: 14px;
+    line-height: 1.9;
+
+    opacity: .45;
+}
+
+
+/* MINECRAFT PHOTOS */
+
+.minecraft-gallery {
+    width: 55%;
+    height: 700px;
+
+    position: relative;
+}
+
+.mc-photo {
+    position: absolute;
+
+    overflow: hidden;
+
+    box-shadow: 0 30px 80px rgba(0,0,0,.6);
+
+    transition: transform .5s ease;
+}
+
+.mc-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.mc-photo:hover {
+    transform: scale(1.04);
+    z-index: 5;
+}
+
+.mc-one {
+    width: 420px;
+    height: 300px;
+
+    top: 30px;
+    left: 0;
+
+    transform: rotate(-4deg);
+}
+
+.mc-two {
+    width: 360px;
+    height: 300px;
+
+    top: 220px;
+    right: 0;
+
+    transform: rotate(5deg);
+}
+
+.mc-three {
+    width: 330px;
+    height: 240px;
+
+    bottom: 20px;
+    left: 100px;
+
+    transform: rotate(-2deg);
+}
+
+
+/* ---------- RANDOM MEMORIES ---------- */
+
+.random-section {
+    min-height: 120vh;
+
+    padding: 160px 8%;
+}
+
+.random-heading h2 {
+    font-size: clamp(60px, 8vw, 115px);
+    line-height: .82;
+    letter-spacing: -5px;
+
+    margin-top: 25px;
+}
+
+.memory-grid {
+    max-width: 1100px;
+
+    margin: 120px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(12, 1fr);
+
+    grid-auto-rows: 90px;
+
+    gap: 20px;
+}
+
+.grid-photo {
+    overflow: hidden;
+
+    box-shadow: 0 25px 70px rgba(0,0,0,.5);
+}
+
+.grid-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform .8s ease;
+}
+
+.grid-photo:hover img {
+    transform: scale(1.06);
+}
+
+.grid-one {
+    grid-column: 1 / 6;
+    grid-row: 1 / 6;
+}
+
+.grid-two {
+    grid-column: 7 / 13;
+    grid-row: 2 / 7;
+}
+
+.grid-three {
+    grid-column: 3 / 8;
+    grid-row: 7 / 12;
+}
+
+.grid-four {
+    grid-column: 9 / 13;
+    grid-row: 8 / 13;
+}
+
+
+/* ---------- END ---------- */
+
+.chapter-two-end {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.end-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(232,212,119,.035);
+
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+.chapter-two-end > p:first-of-type {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+    letter-spacing: 5px;
+
+    opacity: .4;
+}
+
+.chapter-two-end h2 {
+    font-size: clamp(60px, 9vw, 130px);
+
+    line-height: .8;
+
+    letter-spacing: -6px;
+
+    margin: 35px 0;
+}
+
+.chapter-two-end h2 i {
+    color: #e8d477;
+    font-weight: 400;
+}
+
+.end-description {
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    opacity: .45;
+}
+
+.chapter-two-end .next-chapter {
+    margin-top: 60px;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 750px) {
+
+    .chapter-two-hero {
+        padding: 0 7%;
+    }
+
+    .chapter-two-hero h1 {
+        font-size: 72px;
+        letter-spacing: -4px;
+    }
+
+    .chaos-section {
+        padding: 100px 7%;
+    }
+
+    .chat-memory,
+    .chat-memory.chat-two {
+        flex-direction: column;
+
+        gap: 40px;
+
+        margin: 0 auto 100px;
+    }
+
+    .chat-photo {
+        width: 85vw;
+        height: 500px;
+    }
+
+    .chat-note {
+        max-width: 85vw;
+    }
+
+    .minecraft-section {
+        padding: 100px 7%;
+
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .minecraft-title {
+        width: 100%;
+    }
+
+    .minecraft-gallery {
+        width: 100%;
+        height: 600px;
+    }
+
+    .mc-one {
+        width: 75vw;
+        height: 250px;
+    }
+
+    .mc-two {
+        width: 65vw;
+        height: 240px;
+        top: 200px;
+    }
+
+    .mc-three {
+        width: 60vw;
+        height: 200px;
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .random-section {
+        padding: 100px 7%;
+    }
+
+    .memory-grid {
+        display: flex;
+        flex-direction: column;
+
+        margin-top: 70px;
+    }
+
+    .grid-photo {
+        width: 100%;
+        height: 400px;
+    }
+
+    .chapter-two-end h2 {
+        font-size: 65px;
+    }
+}
+
+/* =========================================
+   CHAPTER THREE — STILL US
+========================================= */
+
+.chapter-three {
+    background: #050505;
+    color: #f5f2e9;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+/* HERO */
+
+.final-hero {
+    min-height: 100vh;
+
+    padding: 0 10%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.final-hero h1 {
+    font-size: clamp(90px, 14vw, 190px);
+    line-height: .78;
+
+    letter-spacing: -8px;
+
+    margin: 30px 0 40px;
+}
+
+.final-hero h1 i {
+    color: #e8d477;
+    font-weight: 400;
+}
+
+.final-intro {
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    opacity: .5;
+}
+
+
+/* FINAL PHOTO */
+
+.final-photo-section {
+    min-height: 110vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.final-photo {
+    width: 65vw;
+    height: 75vh;
+
+    overflow: hidden;
+
+    box-shadow: 0 40px 100px rgba(0,0,0,.7);
+}
+
+.final-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.final-photo-caption {
+    position: absolute;
+
+    left: 12%;
+    bottom: 12%;
+
+    background: #080808;
+
+    padding: 35px 40px;
+
+    max-width: 500px;
+}
+
+.final-photo-caption > p {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+    letter-spacing: 4px;
+
+    opacity: .45;
+}
+
+.final-photo-caption h2 {
+    font-size: clamp(35px, 4vw, 60px);
+
+    line-height: .95;
+
+    margin-top: 20px;
+}
+
+.final-photo-caption i {
+    color: #e8d477;
+    font-weight: 400;
+}
+
+
+/* THINGS */
+
+.things-section {
+    min-height: 100vh;
+
+    padding: 150px 10%;
+}
+
+.things-section h2 {
+    font-size: clamp(60px, 9vw, 130px);
+
+    line-height: .8;
+
+    letter-spacing: -6px;
+
+    margin: 30px 0 120px;
+}
+
+.things {
+    max-width: 900px;
+}
+
+.thing {
+    display: grid;
+
+    grid-template-columns: 80px 1fr;
+
+    padding: 35px 0;
+
+    border-top: 1px solid rgba(255,255,255,.12);
+}
+
+.thing span {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    color: #e8d477;
+}
+
+.thing p {
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+    line-height: 1.6;
+
+    opacity: .6;
+
+    max-width: 450px;
+}
+
+
+/* LETTER INTRO */
+
+.letter-intro {
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.letter-intro > p {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    opacity: .4;
+}
+
+.letter-intro h2 {
+    font-size: clamp(70px, 10vw, 150px);
+
+    line-height: .8;
+
+    letter-spacing: -7px;
+
+    margin: 45px 0;
+}
+
+.letter-intro h2 i {
+    color: #e8d477;
+    font-weight: 400;
+}
+
+.letter-line {
+    width: 1px;
+    height: 100px;
+
+    background: rgba(255,255,255,.25);
+}
+
+
+/* LETTER */
+
+.letter-section {
+    min-height: 120vh;
+
+    padding: 100px 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.letter {
+    width: min(650px, 90vw);
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    line-height: 2;
+
+    color: rgba(245,242,233,.75);
+}
+
+.letter-date {
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    opacity: .4;
+
+    margin-bottom: 80px;
+}
+
+.letter h2 {
+    font-size: 50px;
+
+    font-weight: 400;
+
+    color: white;
+
+    margin-bottom: 50px;
+}
+
+.letter p {
+    margin-bottom: 40px;
+}
+
+.signature {
+    color: #e8d477;
+
+    font-style: italic;
+
+    font-size: 25px;
+
+    margin-top: 70px;
+}
+
+
+/* FINAL SCREEN */
+
+.final-screen {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.final-moon {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    margin-bottom: 60px;
+
+    box-shadow:
+        0 0 50px rgba(255,255,255,.1),
+        0 0 100px rgba(232,212,119,.08);
+}
+
+.final-moon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.final-screen > p:first-of-type {
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    opacity: .4;
+}
+
+.final-screen h2 {
+    font-size: clamp(65px, 9vw, 135px);
+
+    line-height: .8;
+
+    letter-spacing: -6px;
+
+    margin: 30px 0;
+}
+
+.final-screen h2 i {
+    color: #e8d477;
+    font-weight: 400;
+}
+
+.final-small {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    opacity: .45;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .final-hero {
+        padding: 0 7%;
+    }
+
+    .final-hero h1 {
+        font-size: 80px;
+        letter-spacing: -5px;
+    }
+
+    .final-photo {
+        width: 88vw;
+        height: 65vh;
+    }
+
+    .final-photo-caption {
+        left: 7%;
+        right: 7%;
+        bottom: 8%;
+
+        padding: 25px;
+    }
+
+    .things-section {
+        padding: 100px 7%;
+    }
+
+    .things-section h2 {
+        font-size: 70px;
+    }
+
+    .letter {
+        font-size: 16px;
+        line-height: 1.9;
+    }
+
+    .letter-intro h2 {
+        font-size: 75px;
+    }
+
+    .final-screen h2 {
+        font-size: 70px;
+    }
+}
